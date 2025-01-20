@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
           informações.
         </p>
         <a
-          href="https://wa.me/5599999999999" // Substitua pelo número correto
+          href="https://wa.me/+5511915121935" // Substitua pelo número correto
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-6 py-3 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-transform transform hover:scale-105 transition duration-300"
