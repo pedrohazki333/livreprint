@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+//import React, { useState } from "react";
+//import Link from "next/link";
+//import { motion } from "framer-motion";
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // const toggleMenu = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <nav className="fixed w-full bg-emerald-600/50 backdrop-blur-md z-50">
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
               Contact
             </a>
           </div> */}
-          <div className="md:hidden">
+          {/* <div className="md:hidden">
             <button
               onClick={toggleMenu}
               className="text-gray-200 focus:outline-none"
@@ -69,11 +69,11 @@ const Navbar: React.FC = () => {
                 />
               </svg>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
-      {isOpen && (
+      {/* {isOpen && (
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
         </motion.div>
-      )}
+      )} */}
     </nav>
   );
 };
