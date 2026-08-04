@@ -1,15 +1,17 @@
 import Link from "next/link";
 
-const PASSOS = ["Personalizar", "Revisão", "Checkout"] as const;
+const PASSOS_PADRAO = ["Personalizar", "Revisão", "Checkout"] as const;
 
 export function EditorHeader({
   passoAtivo,
   voltarHref,
   voltarLabel = "← Voltar",
+  passos = PASSOS_PADRAO,
 }: {
   passoAtivo: 1 | 2 | 3;
   voltarHref: string;
   voltarLabel?: string;
+  passos?: readonly [string, string, string];
 }) {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background">
@@ -24,7 +26,7 @@ export function EditorHeader({
         </Link>
 
         <div className="hidden items-center gap-2.5 text-[13px] text-muted-2 sm:flex">
-          {PASSOS.map((label, i) => {
+          {passos.map((label, i) => {
             const num = i + 1;
             const ativo = num === passoAtivo;
             return (

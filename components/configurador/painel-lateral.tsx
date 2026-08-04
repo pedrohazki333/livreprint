@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { FACES } from "@/lib/configurador/faces";
 import { useConfiguradorStore } from "@/lib/configurador/store";
+import { calcularDpi } from "@/lib/dpi";
 import { brl } from "@/lib/format";
 
 export function PainelLateral() {
@@ -38,7 +39,7 @@ export function PainelLateral() {
   let dpiTexto = "";
   let dpiCor = "text-muted-foreground";
   if (sel) {
-    const dpi = Math.round(sel.natW / (sel.w / 2.54));
+    const dpi = calcularDpi(sel.natW, sel.w);
     if (dpi >= 300) {
       dpiTexto = `Resolução ótima: ${dpi} DPI no tamanho atual.`;
       dpiCor = "text-primary";

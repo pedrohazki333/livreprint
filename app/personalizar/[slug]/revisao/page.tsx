@@ -9,7 +9,9 @@ import { FACES } from "@/lib/configurador/faces";
 import { useConfiguradorStore } from "@/lib/configurador/store";
 import { useHydrateConfigurador } from "@/lib/configurador/use-hydrate";
 import { useCarrinhoStore } from "@/lib/carrinho/store";
+import { descricaoItemCarrinho } from "@/lib/carrinho/label";
 import { useHydrateCarrinho } from "@/lib/carrinho/use-hydrate";
+import { calcularDpi } from "@/lib/dpi";
 import { brl } from "@/lib/format";
 
 export default function RevisaoPecaPage({
@@ -107,7 +109,7 @@ export default function RevisaoPecaPage({
                 </div>
                 <div className="flex flex-col gap-3">
                   {todasArtes.map(({ face, arte }) => {
-                    const dpi = Math.round(arte.natW / (arte.w / 2.54));
+                    const dpi = calcularDpi(arte.natW, arte.w);
                     const dpiCor =
                       dpi >= 300
                         ? "text-primary"
@@ -263,9 +265,7 @@ export default function RevisaoPecaPage({
                     key={c.id}
                     className="flex justify-between gap-3 text-[13px] text-muted-foreground"
                   >
-                    <span>
-                      {c.produtoNome} · {c.cor} · {c.totalQty} peça(s)
-                    </span>
+                    <span>{descricaoItemCarrinho(c)}</span>
                     <b className="whitespace-nowrap text-foreground">
                       {brl(c.precoTotalCentavos)}
                     </b>

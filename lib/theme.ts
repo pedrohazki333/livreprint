@@ -6,4 +6,6 @@ export const CORES = {
   primario: "#1C8A4B",
   perigo: "#B03A3A",
   card: "#FFFFFF",
+  tinta: "#14140F",
+  folha: "#F7F4EE",
 } as const;
